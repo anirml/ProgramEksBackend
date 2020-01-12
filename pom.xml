@@ -7,7 +7,7 @@
     <version>1</version>
     <packaging>war</packaging>
 
-    <name>security</name>
+    <name>Euro-Trans-Protocol</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
