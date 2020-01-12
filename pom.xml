@@ -15,7 +15,7 @@
         
         <!-- TODO: Change the URL to your own tomcat server. Used to deploy your WAR-file 
         -->
-        <remote.server>https://206.81.26.59/manager/text</remote.server>
+        <remote.server>https://lotzofweb.com/manager/text</remote.server>
         
     </properties>
     
