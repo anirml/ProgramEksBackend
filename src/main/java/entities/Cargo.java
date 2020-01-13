@@ -5,6 +5,7 @@
  */
 package entities;
 
+import dto.CargoDTO;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,11 +29,49 @@ public class Cargo implements Serializable {
     @Column(name = "name")
     private String name;
     @Column(name = "weight")
-    private double weight;
+    private int weight;
     @Column(name = "units")
-    private int units;    
+    private int units;   
     
+    
+    
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getUnits() {
+        return units;
+    }
+
+    public void setUnits(int units) {
+        this.units = units;
+    }
+
+    public Cargo(Long id, String name, int weight, int units) {
+        this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.units = units;
+    }
+
+    public Cargo(CargoDTO c) {
+        this.name = c.getName();
+        this.weight = c.getWeight();
+        this.units = c.getUnits();
+    }      
+    
     public Cargo() {
     }    
     

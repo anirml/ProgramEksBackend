@@ -5,26 +5,29 @@
  */
 package dto;
 
+import entities.Cargo;
+
 /**
  *
  * @author Jeppe
  */
 public class CargoDTO {
-    //private Long id;
+    private Long id;
     private String name;
-    private double weight;
+    private int weight;
     private int units;   
 
-    public CargoDTO(String name, double weight, int units) {
-        this.name = name;
-        this.weight = weight;
-        this.units = units;
+    public CargoDTO(Cargo cargo) {
+        this.id = cargo.getId();
+        this.name = cargo.getName();
+        this.weight = cargo.getWeight();
+        this.units = cargo.getUnits();
     }
     
     public CargoDTO(){
         
     }
-    
+
     public String getName() {
         return name;
     }
@@ -33,11 +36,11 @@ public class CargoDTO {
         this.name = name;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -51,4 +54,3 @@ public class CargoDTO {
     
     
 }
-

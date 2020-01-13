@@ -6,7 +6,9 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +31,8 @@ public class Deliveries implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Cargo cargo;
+   // private Cargo cargo;
+    private List<Cargo> cargo = new ArrayList();
 
     private Trucks truck;
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -40,6 +43,61 @@ public class Deliveries implements Serializable {
     @Column(name = "to_location")
     private String toLocation;   
 
+    public Deliveries(Long id, Trucks truck, Date shippingDate, String fromLocation, String toLocation) {
+        this.id = id;
+        this.truck = truck;
+        this.shippingDate = shippingDate;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
+    }    
+    
+        public Deliveries(Trucks truck, Date shippingDate, String fromLocation, String toLocation) {
+        this.truck = truck;
+        this.shippingDate = shippingDate;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
+    } 
+    
+    public List<Cargo> getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(List<Cargo> cargo) {
+        this.cargo = cargo;
+    }
+
+    public Trucks getTruck() {
+        return truck;
+    }
+
+    public void setTruck(Trucks truck) {
+        this.truck = truck;
+    }
+
+    public Date getShippingDate() {
+        return shippingDate;
+    }
+
+    public void setShippingDate(Date shippingDate) {
+        this.shippingDate = shippingDate;
+    }
+
+    public String getFromLocation() {
+        return fromLocation;
+    }
+
+    public void setFromLocation(String fromLocation) {
+        this.fromLocation = fromLocation;
+    }
+
+    public String getToLocation() {
+        return toLocation;
+    }
+
+    public void setToLocation(String toLocation) {
+        this.toLocation = toLocation;
+    }
+    
     public Deliveries() {
     }    
     

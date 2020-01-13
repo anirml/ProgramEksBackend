@@ -6,8 +6,11 @@
 package dto;
 
 import entities.Cargo;
+import entities.Deliveries;
 import entities.Trucks;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -15,19 +18,25 @@ import java.util.Date;
  */
 public class DeliveriesDTO {
     private Long id;
-    private Cargo cargo;
     private Trucks truck;
     private Date shippingDate;
     private String fromLocation;
     private String toLocation;  
+    private List<CargoDTO> cargo = new ArrayList();
     
-    public DeliveriesDTO(Long id, Cargo cargo, Trucks truck, Date shippingDate, String fromLocation, String toLocation) {
-        this.id = id;
-        this.cargo = cargo;
-        this.truck = truck;
-        this.shippingDate = shippingDate;
-        this.fromLocation = fromLocation;
-        this.toLocation = toLocation;
+   // private List<HobbyDTO> hobbies = new ArrayList();
+    
+    public DeliveriesDTO(Deliveries d) {
+        this.id = d.getId();
+        this.truck = d.getTruck();
+        this.shippingDate = d.getShippingDate();
+        this.fromLocation = d.getFromLocation();
+        this.toLocation = d.getToLocation();
+        
+        for (Cargo cargo : d.getCargo()){ 
+            this.cargo.add(new CargoDTO(cargo));
+        }
+
     } 
     
     public DeliveriesDTO(){
@@ -42,11 +51,11 @@ public class DeliveriesDTO {
         this.id = id;
     }
 
-    public Cargo getCargo() {
+    public List<CargoDTO> getCargo() {
         return cargo;
     }
 
-    public void setCargo(Cargo cargo) {
+    public void setCargo(List<CargoDTO> cargo) {
         this.cargo = cargo;
     }
 
