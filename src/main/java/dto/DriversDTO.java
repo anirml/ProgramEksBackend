@@ -12,9 +12,9 @@ package dto;
 public class DriversDTO {
     private Long id;
     private String name;
-    private int booked;   
+    private String booked;   
 
-    public DriversDTO(Long id, String name, int booked) {
+    public DriversDTO(Long id, String name, String booked) {
         this.id = id;
         this.name = name;
         this.booked = booked;
@@ -40,11 +40,11 @@ public class DriversDTO {
         this.name = name;
     }
 
-    public int getBooked() {
+    public String getBooked() {
         return booked;
     }
 
-    public void setBooked(int booked) {
+    public void setBooked(String booked) {
         this.booked = booked;
     }
     
