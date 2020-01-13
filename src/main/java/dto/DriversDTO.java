@@ -46,10 +46,6 @@ public class DriversDTO {
 
     public void setBooked(String booked) {
         this.booked = booked;
-    }
-    
-    
-    
-    
+    }  
     
 }

@@ -1,7 +1,10 @@
 package facades;
 
+import entities.Deliveries;
 import utils.EMF_Creator;
 import entities.RenameMe;
+import entities.Trucks;
+import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import org.junit.jupiter.api.AfterAll;
@@ -29,7 +32,7 @@ public class DeliveriesFacadeTest {
     public static void setUpClass() {
         emf = EMF_Creator.createEntityManagerFactory(
                 "pu",
-                "jdbc:mysql://localhost:3307/startcode_test",
+                "jdbc:mysql://localhost:3307/progeks_test",
                 "dev",
                 "ax2",
                 EMF_Creator.Strategy.CREATE);
@@ -63,6 +66,10 @@ public class DeliveriesFacadeTest {
             em.createNamedQuery("RenameMe.deleteAllRows").executeUpdate();
             em.persist(new RenameMe("Some txt", "More text"));
             em.persist(new RenameMe("aaa", "bbb"));
+            
+            Trucks truck1 = new Trucks(new Long(1),"Toyota",30000);
+            
+            em.persist(new Deliveries(truck1,new Date(),"Esbjerg","Brandenburg"));
 
             em.getTransaction().commit();
         } finally {
@@ -84,5 +91,10 @@ public class DeliveriesFacadeTest {
     @Test
     public void testUserRole(){
         
+    }
+    
+    @Test
+    public void testDelivieries(){
+        assertEquals(1, facade.getAllDeliveries(), "expects 1 delivery in the database");
     }
 }
