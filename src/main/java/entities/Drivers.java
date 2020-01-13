@@ -32,14 +32,44 @@ public class Drivers implements Serializable {
     private String name;
     //todo maybe add truck here?
     @Column(name = "booked")
-    private int booked;  
-    
+    private String booked;  
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-    //todo join column id with truck id
     private Trucks truck; 
-        
+    
+    public Drivers(Long id, String name, String booked, Trucks truck) {
+        this.id = id;
+        this.name = name;
+        this.booked = booked;
+        this.truck = truck;
+    }
+
     public Drivers() {
+        
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBooked() {
+        return booked;
+    }
+
+    public void setBooked(String booked) {
+        this.booked = booked;
+    }
+
+    public Trucks getTruck() {
+        return truck;
+    }
+
+    public void setTruck(Trucks truck) {
+        this.truck = truck;
     }
         
     public Long getId() {
@@ -49,8 +79,5 @@ public class Drivers implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
-
-
-    
+   
 }

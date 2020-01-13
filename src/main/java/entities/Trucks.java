@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "trucks")
 public class Trucks implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,15 +30,37 @@ public class Trucks implements Serializable {
     @Column(name = "capacity")
     private int capacity;
 
-    public Trucks() {
-    }   
+    public Trucks(Long id, String name, int capacity) {
+        this.id = id;
+        this.name = name;
+        this.capacity = capacity;
+    }
     
+    public Trucks() {
+    }  
+     
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+        public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
     

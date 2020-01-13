@@ -32,9 +32,23 @@ public class Cargo implements Serializable {
     private int weight;
     @Column(name = "units")
     private int units;   
+
+    public Cargo(CargoDTO c) {
+        this.name = c.getName();
+        this.weight = c.getWeight();
+        this.units = c.getUnits();
+    }      
     
+    public Cargo(Long id, String name, int weight, int units) {
+        this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.units = units;
+    }
     
-    
+    public Cargo() {
+    }        
+     
     public String getName() {
         return name;
     }
@@ -58,22 +72,6 @@ public class Cargo implements Serializable {
     public void setUnits(int units) {
         this.units = units;
     }
-
-    public Cargo(Long id, String name, int weight, int units) {
-        this.id = id;
-        this.name = name;
-        this.weight = weight;
-        this.units = units;
-    }
-
-    public Cargo(CargoDTO c) {
-        this.name = c.getName();
-        this.weight = c.getWeight();
-        this.units = c.getUnits();
-    }      
-    
-    public Cargo() {
-    }    
     
     public Long getId() {
         return id;

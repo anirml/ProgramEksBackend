@@ -57,7 +57,10 @@ public class Deliveries implements Serializable {
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
     } 
-    
+        
+        public Deliveries() {
+    }  
+        
     public List<Cargo> getCargo() {
         return cargo;
     }
@@ -96,10 +99,7 @@ public class Deliveries implements Serializable {
 
     public void setToLocation(String toLocation) {
         this.toLocation = toLocation;
-    }
-    
-    public Deliveries() {
-    }    
+    }  
     
     public Long getId() {
         return id;
