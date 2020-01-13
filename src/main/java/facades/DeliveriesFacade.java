@@ -10,13 +10,13 @@ import javax.persistence.Persistence;
  *
  * Rename Class to a relevant name Add add relevant facade methods
  */
-public class FacadeExample {
+public class DeliveriesFacade {
 
-    private static FacadeExample instance;
+    private static DeliveriesFacade instance;
     private static EntityManagerFactory emf;
     
     //Private Constructor to ensure Singleton
-    private FacadeExample() {}
+    private DeliveriesFacade() {}
     
     
     /**
@@ -24,10 +24,10 @@ public class FacadeExample {
      * @param _emf
      * @return an instance of this facade class.
      */
-    public static FacadeExample getFacadeExample(EntityManagerFactory _emf) {
+    public static DeliveriesFacade getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
-            instance = new FacadeExample();
+            instance = new DeliveriesFacade();
         }
         return instance;
     }
@@ -37,11 +37,11 @@ public class FacadeExample {
     }
     
     //TODO Remove/Change this before use
-    public long getRenameMeCount(){
+    public long getDeliveriesCount(){
         EntityManager em = emf.createEntityManager();
         try{
-            long renameMeCount = (long)em.createQuery("SELECT COUNT(r) FROM RenameMe r").getSingleResult();
-            return renameMeCount;
+            long DeliveriesCount = (long)em.createQuery("SELECT COUNT(r) FROM Deliveries r").getSingleResult();
+            return DeliveriesCount;
         }finally{  
             em.close();
         }
